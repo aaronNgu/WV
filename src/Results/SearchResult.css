@@ -1,0 +1,35 @@
+.Result{
+  width: 70%;
+  border-radius : 5px;
+  border-style:solid;
+  border-width:2px;
+  margin:6px auto;
+  padding : 10px;
+  text-align:left;
+  padding: 10px;
+}
+.Result a{
+  text-decoration: none;
+  cursor: pointer;
+}
+#get-article{
+  order: 1;
+  display:flex;
+}
+#rando{
+  border: solid;
+  background-color: white;
+}
+#rando:hover,#submit:hover{
+  background-color:#FFFAFA
+}
+#submit{
+  border:solid;
+  background-color:white;
+}
+#or{
+  margin-left:5px;
+  margin-right: 5px;
+  margin-top: 10px;
+  font-weight:bold;
+}
