@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import SearchResult from './SearchResult';
 import InputForm from './InputForm';
+import Random from './Random';
 
 class SearchResults extends Component{
   state = {
@@ -45,18 +46,30 @@ class SearchResults extends Component{
   }
 
   render(){
-    console.log("render in SearchResults");
     if(!this.state.isLoaded){
-      console.log("render in SR without data");
-      return <InputForm
-      onSearch = {(input) => this.handleSearch(input)}/>
-    }else {
-      console.log("render in SR with data");
       return (
         <React.Fragment>
-          <InputForm
-           onSearch = {(input) => this.handleSearch(input)}/>
+          <h1>Search it up </h1>
+          <div id = "get-article" >
+            <Random />
+            <InputForm
+              onSearch = {(input) => this.handleSearch(input)}/>
+          </div>
+        </React.Fragment>
+      )
+
+    }else {
+      return (
+        <React.Fragment>
+          <h1>Search it up </h1>
+          <div id = "get-article" >
+            <Random />
+            <InputForm
+             onSearch = {(input) => this.handleSearch(input)}/>
+          </div>
+          <div id = "output">
            {this.state.items.map(item => <SearchResult key = {item} item ={item}/>)}
+           </div>
         </React.Fragment>
       )
     }

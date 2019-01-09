@@ -1,21 +1,23 @@
-.Result{
-  width: 70%;
-  border-radius : 5px;
-  border-style:solid;
-  border-width:2px;
-  margin:6px auto;
-  padding : 10px;
-  text-align:left;
-  padding: 10px;
+html, body{
+  height:100%;
 }
-.Result a{
-  text-decoration: none;
-  cursor: pointer;
+#main{
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  height:100%;
+ }
+h1{
+  order:0;
+  margin-bottom: 20px;
+  margin-top:10px;
 }
 #get-article{
   order: 1;
   display:flex;
 }
+
 #rando{
   border: solid;
   background-color: white;
@@ -32,4 +34,25 @@
   margin-right: 5px;
   margin-top: 10px;
   font-weight:bold;
+}
+#output{
+  order: 2;
+  text-align: left;
+  position: relative;
+  width: 700px;
+  display:table;
+}
+.Result{
+  width: 70%;
+  border-radius : 5px;
+  border-style:solid;
+  border-width:2px;
+  margin:6px auto;
+  padding : 10px;
+  text-align:left;
+  padding: 10px;
+}
+.Result a{
+  text-decoration: none;
+  cursor: pointer;
 }
