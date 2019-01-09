@@ -26,6 +26,7 @@ class InputForm extends Component{
   }
 
   render(){
+    console.log("render in inputForm");
     return (
       <form id = 'get-article' onSubmit = {e => this.handleSubmit(e)}>
         <input
@@ -35,6 +36,10 @@ class InputForm extends Component{
         <button id = 'submit'>Submit</button>
       </form>
     );
+  }
+
+  componentDidUpdate(){
+    console.log("componentDidUpdate in inputForm");
   }
 }
 

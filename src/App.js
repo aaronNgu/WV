@@ -3,25 +3,42 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      items:[],
+      isLoaded: false,
+    }
+  }
+
+  componentDidMount(){
+     fetch("https://en.wikipedia.org/w/api.php?action=opensearch&search=aaron&format=json&origin=*")
+     .then(res => res.json())
+      .then(json =>{
+        this.setState({
+          isLoaded: true,
+          items:json
+        })
+      });
+  }
+
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+    var {isLoaded, items} = this.state;
+
+    if(!isLoaded){
+      return <div> Loading ... </div>
+    }else {
+      return (
+        <div className="App">
+          <p>{items[0]}</p>
+          <p>{items[1][4]}</p>
+          <p>{items[3]}</p>
+
+          <p>{items}</p>
+        </div>
+      );
+    }
   }
 }
 
