@@ -1,4 +1,4 @@
-html, body{
+html,body, #root{
   height:100%;
 }
 #main{
@@ -17,7 +17,14 @@ h1{
   order: 1;
   display:flex;
 }
-
+#output{
+  order: 2;
+  text-align: left;
+  position: relative;
+  width: 700px;
+  display:table;
+  margin-bottom: 100px;
+}
 #rando{
   border: solid;
   background-color: white;
@@ -35,22 +42,13 @@ h1{
   margin-top: 10px;
   font-weight:bold;
 }
-#output{
-  order: 2;
-  text-align: left;
-  position: relative;
-  width: 700px;
-  display:table;
-}
 .Result{
-  width: 70%;
   border-radius : 5px;
   border-style:solid;
-  border-width:2px;
-  margin:6px auto;
-  padding : 10px;
-  text-align:left;
   padding: 10px;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .Result a{
   text-decoration: none;

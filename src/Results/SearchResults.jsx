@@ -17,11 +17,10 @@ class SearchResults extends Component{
 
   handleSearch(userInput){
     this.setState({input: userInput});
-    this.goSearch();
   }
 
-  goSearch(){
-    fetch("https://en.wikipedia.org/w/api.php?action=opensearch&search=aaron&format=json&origin=*")
+  componentDidUpdate(){
+    fetch("https://en.wikipedia.org/w/api.php?action=opensearch&search="+this.state.input+"&format=json&origin=*")
     .then(res => res.json())
      .then(json => this.handleJSON(json));
   }
@@ -48,29 +47,31 @@ class SearchResults extends Component{
   render(){
     if(!this.state.isLoaded){
       return (
-        <React.Fragment>
-          <h1>Search it up </h1>
-          <div id = "get-article" >
-            <Random />
-            <InputForm
-              onSearch = {(input) => this.handleSearch(input)}/>
-          </div>
-        </React.Fragment>
+        <div id = 'main'>
+            <h1>Search it up </h1>
+            <div id = "get-article" >
+              <Random />
+              <p id = 'or'> OR </p>
+              <InputForm
+                onSearch = {(input) => this.handleSearch(input)}/>
+            </div>
+        </div>
       )
 
     }else {
       return (
-        <React.Fragment>
-          <h1>Search it up </h1>
-          <div id = "get-article" >
-            <Random />
-            <InputForm
-             onSearch = {(input) => this.handleSearch(input)}/>
-          </div>
-          <div id = "output">
-           {this.state.items.map(item => <SearchResult key = {item} item ={item}/>)}
-           </div>
-        </React.Fragment>
+        <div id = 'main' style = {{height:'auto'}}>
+            <h1>Search it up </h1>
+            <div id = "get-article" >
+              <Random />
+              <p id = 'or'> OR </p>
+              <InputForm
+               onSearch = {(input) => this.handleSearch(input)}/>
+            </div>
+            <div id = "output">
+             {this.state.items.map(item => <SearchResult key = {item} item ={item}/>)}
+             </div>
+        </div>
       )
     }
   }
